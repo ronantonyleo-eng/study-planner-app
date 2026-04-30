@@ -1,3 +1,60 @@
-<input type="text" id="taskInput">
-<button>Add</button>
-<ul id="taskList"></ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Planner App</title>
+</head>
+<body>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Heading -->
+    <h1>📚 Study Planner</h1>
+    <p>Organize your daily study tasks easily.</p>
+
+    <!-- Task Input Section -->
+    <div class="task-input">
+
+      <!-- Subject Name -->
+      <label for="subject">Subject</label>
+      <input 
+        type="text" 
+        id="subject" 
+        placeholder="Enter subject name"
+      />
+
+      <!-- Task Name -->
+      <label for="task">Task</label>
+      <input 
+        type="text" 
+        id="task" 
+        placeholder="Enter task (Example: Learn Chapter 1)"
+      />
+
+      <!-- Date -->
+      <label for="date">Study Date</label>
+      <input 
+        type="date" 
+        id="date"
+      />
+
+      <!-- Add Button -->
+      <button id="addBtn">Add Task</button>
+
+    </div>
+
+    <!-- Task List -->
+    <div class="task-list">
+      <h2>My Tasks</h2>
+
+      <ul id="taskList">
+        <!-- Tasks will appear here -->
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
