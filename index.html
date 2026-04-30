@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Study Planner App</title>
+
+  <!-- Connect CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -12,12 +15,12 @@
 
     <!-- Heading -->
     <h1>📚 Study Planner</h1>
-    <p>Organize your daily study tasks easily.</p>
+    <p>Plan your studies and stay productive.</p>
 
-    <!-- Task Input Section -->
-    <div class="task-input">
+    <!-- Input Section -->
+    <div class="task-box">
 
-      <!-- Subject Name -->
+      <!-- Subject -->
       <label for="subject">Subject</label>
       <input 
         type="text" 
@@ -25,12 +28,12 @@
         placeholder="Enter subject name"
       />
 
-      <!-- Task Name -->
+      <!-- Task -->
       <label for="task">Task</label>
       <input 
         type="text" 
         id="task" 
-        placeholder="Enter task (Example: Learn Chapter 1)"
+        placeholder="Enter task details"
       />
 
       <!-- Date -->
@@ -40,21 +43,21 @@
         id="date"
       />
 
-      <!-- Add Button -->
+      <!-- Button -->
       <button id="addBtn">Add Task</button>
 
     </div>
 
     <!-- Task List -->
-    <div class="task-list">
-      <h2>My Tasks</h2>
-
-      <ul id="taskList">
-        <!-- Tasks will appear here -->
-      </ul>
+    <div class="list-box">
+      <h2>📌 My Tasks</h2>
+      <ul id="taskList"></ul>
     </div>
 
   </div>
+
+  <!-- Connect JavaScript -->
+  <script src="script.js"></script>
 
 </body>
 </html>
