@@ -1,47 +1,55 @@
-// Get elements
-const taskInput = document.getElementById("taskInput");
+// Get elements from HTML
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
-// Add task when button is clicked
+// When button is clicked
 addBtn.addEventListener("click", addTask);
 
 // Function to add task
 function addTask() {
-  const taskText = taskInput.value.trim();
+  // Get input values
+  const subject = document.getElementById("subject").value.trim();
+  const task = document.getElementById("task").value.trim();
+  const date = document.getElementById("date").value;
 
-  // Prevent empty task
-  if (taskText === "") {
-    alert("Please enter a task.");
+  // Validation
+  if (subject === "" || task === "") {
+    alert("Please enter subject and task.");
     return;
   }
 
   // Create list item
   const li = document.createElement("li");
-  li.textContent = taskText;
 
-  // Mark completed when clicked
-  li.addEventListener("click", function () {
-    li.classList.toggle("completed");
-  });
+  li.innerHTML = `
+    <span>
+      <strong>${subject}</strong> - ${task} ${date ? `(${date})` : ""}
+    </span>
 
-  // Create delete button
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
-  deleteBtn.classList.add("delete-btn");
-
-  // Delete task
-  deleteBtn.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent complete toggle
-    li.remove();
-  });
-
-  // Add delete button to task
-  li.appendChild(deleteBtn);
+    <div>
+      <button onclick="completeTask(this)">✔</button>
+      <button onclick="deleteTask(this)">🗑</button>
+    </div>
+  `;
 
   // Add task to list
   taskList.appendChild(li);
 
-  // Clear input
-  taskInput.value = "";
+  // Clear inputs
+  document.getElementById("subject").value = "";
+  document.getElementById("task").value = "";
+  document.getElementById("date").value = "";
+}
+
+// Mark task complete
+function completeTask(button) {
+  const li = button.parentElement.parentElement;
+  li.style.textDecoration = "line-through";
+  li.style.opacity = "0.6";
+}
+
+// Delete task
+function deleteTask(button) {
+  const li = button.parentElement.parentElement;
+  li.remove();
 }
